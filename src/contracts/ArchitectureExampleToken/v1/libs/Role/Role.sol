@@ -10,7 +10,7 @@ library RoleList {
   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 }
 
-abstract contract Role is AccessControlUpgradeable, RoleEvents, IRole {
+contract Role is AccessControlUpgradeable, RoleEvents, IRole {
   function __Role_init() internal onlyInitializing {
     __AccessControl_init();
     _grantRole(RoleList.ADMIN_ROLE, msg.sender);

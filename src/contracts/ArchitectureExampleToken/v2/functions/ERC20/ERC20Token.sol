@@ -6,7 +6,7 @@ import {Role} from "../../libs/Role/Role.sol";
 import {Schema} from "../../storage/Schema.sol";
 import {Storage} from "../../storage/Storage.sol";
 
-abstract contract ERC20Token is ERC20Upgradeable, Role {
+contract ERC20Token is ERC20Upgradeable, Role {
   function __ERC20Token_init(
     string memory name,
     string memory symbol
