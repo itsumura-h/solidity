@@ -8,8 +8,6 @@ import {Context} from "./Context.sol";
 import {ERC20Internal} from "./ERC20Internal.sol";
 import {IERC20} from "./IERC20.sol";
 
-
-
 abstract contract ERC20 is IERC20, ERC20Internal {
   constructor(
     string memory name_,
@@ -68,19 +66,31 @@ abstract contract ERC20 is IERC20, ERC20Internal {
     return true;
   }
 
-  function increaseAllowance(address spender, uint256 addedValue) public returns (bool) {
+  function increaseAllowance(
+    address spender,
+    uint256 addedValue
+  ) public returns (bool) {
     address owner = _msgSender();
-    (bool success, uint256 newAllowance) = Math.tryAdd(_allowances[owner][spender], addedValue);
-    if(!success) newAllowance = type(uint256).max;
+    (bool success, uint256 newAllowance) = Math.tryAdd(
+      _allowances[owner][spender],
+      addedValue
+    );
+    if (!success) newAllowance = type(uint256).max;
     _approve(owner, spender, newAllowance, true);
     return true;
   }
 
-  function decreaseAllowance(address spender, uint256 subtractedValue) public returns (bool) {
+  function decreaseAllowance(
+    address spender,
+    uint256 subtractedValue
+  ) public returns (bool) {
     address owner = _msgSender();
 
-    (bool success, uint256 newAllowance) = Math.trySub(_allowances[owner][spender], subtractedValue);
-    if(!success) newAllowance = 0;
+    (bool success, uint256 newAllowance) = Math.trySub(
+      _allowances[owner][spender],
+      subtractedValue
+    );
+    if (!success) newAllowance = 0;
     _approve(owner, spender, newAllowance, true);
     return true;
   }
