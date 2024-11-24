@@ -11,6 +11,13 @@ contract ERC20Token is ERC20Upgradeable, Role {
     string memory name,
     string memory symbol
   ) internal onlyInitializing {
+    __ERC20_init(name, symbol);
+  }
+
+  function __ERC20Token_init_v2(
+    string memory name,
+    string memory symbol
+  ) internal onlyInitializing {
     __ERC20_init_unchained(name, symbol);
   }
 

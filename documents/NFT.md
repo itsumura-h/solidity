@@ -92,6 +92,7 @@ console.log(uri);
 // >  https://example.com/metadata/1.json
 ```
 
+## 実装例
 ニシキゴイ
 
 https://etherscan.io/address/0xf16a5b64f5a774c24218a83f6fb2c7700fb6469a#readContract
@@ -110,7 +111,7 @@ https://etherscan.io/address/0xf16a5b64f5a774c24218a83f6fb2c7700fb6469a#readCont
   "attributes": [
     {
       "trait_type": "Artist",
-      "value": "Okazz"
+      "value": "Okazz"  
     },
     {
       "trait_type": "License",
