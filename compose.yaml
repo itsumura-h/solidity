@@ -1,0 +1,19 @@
+services:
+  solidity:
+    build:
+      context: .
+      dockerfile: ./docker/solidity/local.Dockerfile
+    tty: true
+    # ports:
+    #   - 8545:8545
+    volumes:
+      - .:/application
+  # icp:
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/icp/local.Dockerfile
+  #   tty: true
+  #   ports:
+  #     - 8000:8000
+  #   volumes:
+  #     - .:/application

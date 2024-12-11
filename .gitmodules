@@ -1,0 +1,30 @@
+[submodule "src/lib/forge-std"]
+	path = src/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "src/lib/openzeppelin-contracts"]
+	path = src/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "src/solidity/lib/forge-std"]
+	path = src/solidity/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "src/solidity/lib/openzeppelin-foundry-upgrades"]
+	path = src/solidity/lib/openzeppelin-foundry-upgrades
+	url = https://github.com/OpenZeppelin/openzeppelin-foundry-upgrades
+[submodule "src/solidity/lib/openzeppelin-contracts-upgradeable"]
+	path = src/solidity/lib/openzeppelin-contracts-upgradeable
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
+[submodule "src/lib/openzeppelin-foundry-upgrades"]
+	path = src/lib/openzeppelin-foundry-upgrades
+	url = https://github.com/OpenZeppelin/openzeppelin-foundry-upgrades
+[submodule "src/lib/openzeppelin-contracts-upgradeable"]
+	path = src/lib/openzeppelin-contracts-upgradeable
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
+[submodule "lib/forge-std"]
+	path = lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "lib/openzeppelin-foundry-upgrades"]
+	path = lib/openzeppelin-foundry-upgrades
+	url = https://github.com/OpenZeppelin/openzeppelin-foundry-upgrades
+[submodule "lib/openzeppelin-contracts-upgradeable"]
+	path = lib/openzeppelin-contracts-upgradeable
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
