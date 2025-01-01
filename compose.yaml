@@ -2,7 +2,7 @@ services:
   solidity:
     build:
       context: .
-      dockerfile: ./docker/solidity/local.Dockerfile
+      dockerfile: ./docker/solidity/develop.Dockerfile
     tty: true
     # ports:
     #   - 8545:8545
