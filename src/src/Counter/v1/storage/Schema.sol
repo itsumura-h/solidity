@@ -6,7 +6,7 @@ pragma solidity ^0.8.23;
  */
 library Schema {
   /// @custom:storage-location erc7201:Counter.CounterState
-  struct CounterState {
+  struct State {
     uint256 number;
   }
 }
