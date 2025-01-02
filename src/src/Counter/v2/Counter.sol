@@ -1,12 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
+import {ICounter} from "./ICounter.sol";
 import {GetNumber} from "./functions/GetNumber.sol";
 import {Increment} from "./functions/Increment.sol";
 import {SetNumber} from "./functions/SetNumber.sol";
 import {InitializeV2} from "./functions/initializer/InitializeV2.sol";
-
-import {ICounter} from "./interfaces/ICounter.sol";
 import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 
 contract Counter is UUPSUpgradeable, ICounter {
