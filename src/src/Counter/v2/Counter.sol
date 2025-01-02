@@ -17,9 +17,7 @@ contract Counter is UUPSUpgradeable, ICounter {
   function _authorizeUpgrade(address newImplementation) internal override {}
 
   function initializeV2() public reinitializer(2) {
-    getNumberAddress = address(new GetNumber());
     incrementAddress = address(new Increment());
-    setNumberAddress = address(new SetNumber());
     address initializeV2Address = address(new InitializeV2());
     (bool success,) = initializeV2Address.delegatecall(abi.encodeWithSelector(InitializeV2.initialize.selector));
     require(success, "Failed to initialize");
