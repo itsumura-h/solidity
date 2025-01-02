@@ -6,5 +6,6 @@ libs = ["lib"]
 [fmt]
 line_length = 120
 tab_width = 2
+sort_imports = true
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
