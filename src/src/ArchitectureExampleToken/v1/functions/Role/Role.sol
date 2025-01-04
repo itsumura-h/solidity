@@ -1,34 +1,29 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.27;
 
-import {AccessControlUpgradeable} from "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
-import {RoleEvents} from "./RoleEvent.sol";
+import {RoleList} from "../../storage/Schema.sol";
 import {IRole} from "./IRole.sol";
+import {AccessControlUpgradeable} from "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
 
-library RoleList {
-  bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
-  bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
-}
-
-contract Role is AccessControlUpgradeable, RoleEvents, IRole {
-  function __Role_init() internal onlyInitializing {
+contract Role is AccessControlUpgradeable, IRole {
+  function initialize() public initializer {
     __AccessControl_init();
     _grantRole(RoleList.ADMIN_ROLE, msg.sender);
   }
-
   // ==================================================
   // Admin
   // ==================================================
+
   modifier onlyAdmin() {
     _checkRole(RoleList.ADMIN_ROLE);
     _;
   }
 
-  function hasAdminRole(address account) public view virtual returns (bool) {
+  function hasAdminRole(address account) public view returns (bool) {
     return hasRole(RoleList.ADMIN_ROLE, account);
   }
 
-  function grantAdminRole(address account) public virtual onlyAdmin {
+  function grantAdminRole(address account) public onlyAdmin {
     _grantRole(RoleList.ADMIN_ROLE, account);
     emit GrantAdminRole(account);
   }
@@ -41,11 +36,11 @@ contract Role is AccessControlUpgradeable, RoleEvents, IRole {
     _;
   }
 
-  function hasMinterRole(address account) public view virtual returns (bool) {
+  function hasMinterRole(address account) public view returns (bool) {
     return hasRole(RoleList.MINTER_ROLE, account);
   }
 
-  function grantMinterRole(address account) public virtual onlyAdmin {
+  function grantMinterRole(address account) public onlyAdmin {
     _grantRole(RoleList.MINTER_ROLE, account);
     emit GrantMinterRole(account);
   }
