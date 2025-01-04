@@ -1,16 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.27;
 
+import {IArchitectureExampleToken} from "./IArchitectureExampleToken.sol";
 import {ERC20Token} from "./functions/ERC20Token.sol";
 import {Role} from "./functions/Role/Role.sol";
-import {Schema} from "./storage/Schema.sol";
-import {Storage} from "./storage/Storage.sol";
-
-import {AccessControlUpgradeable} from "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
 import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import {ERC20Upgradeable} from "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 
-contract ArchitectureExampleToken is UUPSUpgradeable {
+contract ArchitectureExampleToken is UUPSUpgradeable, IArchitectureExampleToken {
   address private erc20TokenAddress;
   address private roleAddress;
 
