@@ -24,7 +24,9 @@ contract CounterUpgradeTest is Test {
 
     // V2 ===============================================
     CounterV2 _counterV2Impl = new CounterV2();
-    counter.upgradeToAndCall(address(_counterV2Impl), abi.encodeWithSelector(CounterV2.initializeV2.selector));
+    counter.upgradeToAndCall(
+      address(_counterV2Impl), abi.encodeWithSelector(CounterV2.initializeV2.selector, "Test v2", "TEST")
+    );
 
     counter.setNumber(1);
     assert(counter.getNumber() == 1);
