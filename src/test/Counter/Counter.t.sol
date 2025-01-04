@@ -1,24 +1,27 @@
-// SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.13;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
 
-import {Test, console} from "forge-std/Test.sol";
-import {Counter} from "../../src/Counter.sol";
+import {Counter} from "../../src/Counter/v1/Counter.sol";
+import {ERC1967Proxy} from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
+import {Test} from "forge-std/Test.sol";
 
 contract CounterTest is Test {
-    Counter public counter;
+  Counter counter;
 
-    function setUp() public {
-        counter = new Counter();
-        counter.setNumber(0);
-    }
+  function setUp() public {
+    Counter _counterImpl = new Counter();
+    ERC1967Proxy _counterProxy =
+      new ERC1967Proxy(address(_counterImpl), abi.encodeWithSelector(Counter.initializeV1.selector, 0));
+    counter = Counter(address(_counterProxy));
+  }
 
-    function test_Increment() public {
-        counter.increment();
-        assertEq(counter.number(), 1);
-    }
+  function test_setNumber() public {
+    counter.setNumber(10);
+    assertEq(counter.getNumber(), 10);
+  }
 
-    function testFuzz_SetNumber(uint256 x) public {
-        counter.setNumber(x);
-        assertEq(counter.number(), x);
-    }
+  function test_increment() public {
+    counter.increment();
+    assertEq(counter.getNumber(), 1);
+  }
 }
